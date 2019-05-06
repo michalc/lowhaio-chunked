@@ -1,6 +1,6 @@
 # lowhaio-chunked
 
-Chunked transfer request encoding for lowhaio. This is only needed if `content-length` is unknown before the body starts to transfer.
+Chunked transfer request encoding for [lowhaio](https://github.com/michalc/lowhaio). This is only needed if `content-length` is unknown before the body starts to transfer.
 
 
 ## Usage
