@@ -7,7 +7,7 @@ def long_description():
 
 
 setuptools.setup(
-    name='lowhaio',
+    name='lowhaio_chunked',
     version='0.0.0',
     author='Michal Charemza',
     author_email='michal@charemza.name',
