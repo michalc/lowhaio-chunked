@@ -5,7 +5,7 @@ Chunked transfer request encoding for [lowhaio](https://github.com/michalc/lowha
 
 ## Usage
 
-Usage is very similar to the standard lowhaio, except that the `body` data should be wrapped with `chunked`, and the `transfer-encoding: chunked` header is required, without `content-length`.
+Usage is very similar to standard lowhaio, except that the `body` data should be wrapped with `chunked`, and the `transfer-encoding: chunked` header is required, without `content-length`.
 
 Note that there are only 6 lines of code required, so suggested usage is to simply copy and paste the below code into your project (ensuring to also follow the LICENSE file).
 
