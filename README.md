@@ -12,7 +12,7 @@ Note that there are only 6 lines of code required, so suggested usage is to simp
 ```python
 async def chunked(body):
     async for chunk in body:
-        yield hex(len(chunk))[2:] + b'\r\n'
+        yield hex(len(chunk))[2:].encode() + b'\r\n'
         yield chunk
         yield b'\r\n'
     yield b'0\r\n\r\n'
@@ -23,7 +23,7 @@ So instead of a request like
 ```python
 code, headers, body = await request(
     b'POST', 'https://example.com/path', body=file_data(),
-    headers=((b'content-length': b'1234'),),
+    headers=((b'content-length', b'1234'),),
 )
 ```
 
@@ -32,7 +32,7 @@ you can write
 ```python
 async def chunked(body):
     async for chunk in body:
-        yield hex(len(chunk))[2:] + b'\r\n'
+        yield hex(len(chunk))[2:].encode() + b'\r\n'
         yield chunk
         yield b'\r\n'
     yield b'0\r\n\r\n'
