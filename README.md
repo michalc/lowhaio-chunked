@@ -39,6 +39,6 @@ async def chunked(body):
 
 code, headers, body = await chunked_request(
     b'POST', 'https://example.com/path', body=chunked(file_data()),
-    headers=(b'transfer-encoding': b'chuncked'),
+    headers=(b'transfer-encoding': b'chunked'),
 )
 ```
