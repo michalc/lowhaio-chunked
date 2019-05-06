@@ -1,4 +1,4 @@
-# lowhaio-chunked
+# lowhaio-chunked [![CircleCI](https://circleci.com/gh/michalc/lowhaio-chunked.svg?style=svg)](https://circleci.com/gh/michalc/lowhaio-chunked)
 
 Chunked transfer request encoding for [lowhaio](https://github.com/michalc/lowhaio). This is only needed if `content-length` is unknown before the body starts to transfer.
 
