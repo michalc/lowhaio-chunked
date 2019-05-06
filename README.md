@@ -21,7 +21,7 @@ async def chunked(body):
 So instead of a request like
 
 ```python
-code, headers, body = await chunked_request(
+code, headers, body = await request(
     b'POST', 'https://example.com/path', body=file_data(),
     headers=(b'content-length': b'1234'),
 )
@@ -37,7 +37,7 @@ async def chunked(body):
         yield b'\r\n'
     yield b'0\r\n\r\n'
 
-code, headers, body = await chunked_request(
+code, headers, body = await request(
     b'POST', 'https://example.com/path', body=chunked(file_data()),
     headers=(b'transfer-encoding': b'chunked'),
 )
