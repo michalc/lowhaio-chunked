@@ -62,8 +62,9 @@ class TestIntegration(unittest.TestCase):
         for chunk_size in range(1, 27):
             _, _, body = await request(
                 b'GET', 'http://localhost:8080/page',
-                body=chunked(chunked_data(chunk_size)),
-                headers=((b'transfer-encoding', b'chunked'),)
+                headers=((b'transfer-encoding', b'chunked'),),
+                body=chunked(chunked_data),
+                body_kwargs=(('chunk_size', chunk_size),),
             )
             await buffered(body)
 

@@ -24,7 +24,7 @@ setuptools.setup(
     ],
     test_suite='test',
     tests_require=[
-        'lowhaio==0.0.34',
+        'lowhaio==0.0.39',
         'aiohttp~=3.5.4',
     ],
     classifiers=[

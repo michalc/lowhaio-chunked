@@ -9,15 +9,17 @@ Chunked transfer request encoding for [lowhaio](https://github.com/michalc/lowha
 pip install lowhaio_chunked
 ```
 
-or just copy and paste the below 6 lines of code into your project, ensuring to also follow the requirements in the LICENSE file.
+or just copy and paste the below 8 lines of code into your project, ensuring to also follow the requirements in the LICENSE file.
 
 ```python
-async def chunked(body):
-    async for chunk in body:
-        yield hex(len(chunk))[2:].encode() + b'\r\n'
-        yield chunk
-        yield b'\r\n'
-    yield b'0\r\n\r\n'
+def chunked(body):
+    async def _chunked(*args, **kwargs):
+        async for chunk in body(*args, **kwargs):
+            yield hex(len(chunk))[2:].encode() + b'\r\n'
+            yield chunk
+            yield b'\r\n'
+        yield b'0\r\n\r\n'
+    return _chunked
 ```
 
 
@@ -35,7 +37,7 @@ request, _ = Pool()
 body = ...
 
 code, headers, body = await request(
-    b'POST', 'https://example.com/path', body=body(),
+    b'POST', 'https://example.com/path', body=body,
     headers=((b'content-length', b'1234'),),
 )
 ```
@@ -51,7 +53,7 @@ request, _ = Pool()
 body = ...
 
 code, headers, body = await request(
-    b'POST', 'https://example.com/path', body=chunked(body()),
+    b'POST', 'https://example.com/path', body=chunked(body),
     headers=((b'transfer-encoding': b'chunked'),),
 )
 ```
