@@ -52,7 +52,7 @@ class TestIntegration(unittest.TestCase):
         await site.start()
 
         request, close = Pool()
-        self.add_async_cleanup(close)
+        self.addCleanup(close)
 
         async def chunked_data(chunk_size):
             chunks = [data[i:i+chunk_size] for i in range(0, len(data), chunk_size)]
