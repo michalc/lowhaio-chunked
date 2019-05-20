@@ -19,9 +19,6 @@ setuptools.setup(
         'lowhaio_chunked',
     ],
     python_requires='>=3.6.3',
-    install_requires=[
-        'lowhaio',
-    ],
     test_suite='test',
     tests_require=[
         'lowhaio==0.0.39',

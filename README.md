@@ -6,7 +6,7 @@ Chunked transfer request encoding for [lowhaio](https://github.com/michalc/lowha
 ## Installation
 
 ```bash
-pip install lowhaio_chunked
+pip install lowhaio lowhaio_chunked
 ```
 
 or just copy and paste the below 8 lines of code into your project, ensuring to also follow the requirements in the LICENSE file.
